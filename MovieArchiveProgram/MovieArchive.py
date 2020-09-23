@@ -28,6 +28,9 @@ while True == True:
             print(f"""director "{director}",""")
             print(f"""released "{year}".""")
             print(movies)
+        def ListMovies():
+            for movie in movies:
+                print(f"""Movie: {movie["title"]}, directed by {movie["director"]}, released in {movie["year"]}""")
         while True == True:
             MENU_PROMPT = input("Enter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: ")
             if MENU_PROMPT == "q":
@@ -36,7 +39,7 @@ while True == True:
             elif MENU_PROMPT == "a":
                 AddMovie()
             elif MENU_PROMPT == "l":
-                pass
+                ListMovies()
             elif MENU_PROMPT == "f":
                 pass
             else:
