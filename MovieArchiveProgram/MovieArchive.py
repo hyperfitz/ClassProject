@@ -19,10 +19,11 @@ while True == True:
     else:
         movies = []
         while True == True:
-            MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: "
+            MENU_PROMPT = input("Enter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: ")
             if MENU_PROMPT == "q":
+                print("Program will now exit.")
                 quit()
-            else:
+            elif MENU_PROMPT == "a":
                 title = input("Enter the movie title: ")
                 director = input("Enter the movie director: ")
                 year = input("Enter the movie release year: ")
@@ -30,3 +31,10 @@ while True == True:
                 movies.append({'title': title, 'director': director, 'year': year})
 
                 print(movies)
+            elif MENU_PROMPT == "l":
+                pass
+            elif MENU_PROMPT == "f":
+                pass
+            else:
+                print("Please choose a valid option.")
+                continue
