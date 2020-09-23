@@ -1,8 +1,9 @@
 """
-This is a program that uses some functions to process user inputs for storing, listing, and searching for movies
-in a list of dictionaries. The movies are user-defined and are not stored once the program exits.
+This is a program that uses some functions to process user inputs for storing, listing, and searching movie titles
+in a list of dictionaries. The movies are user-defined and are no longer stored once the program exits. The functions are
+unnecessary but part of the exercise was to define functions and then use them.
 
-As of September 23, 2020, I am still working on this one.
+This program is complete as of Sep 23, 2020.
 """
 
 
@@ -18,6 +19,8 @@ while True == True:
         continue
     else:
         movies = []
+
+
         def AddMovie():
             title = input("Enter the movie title: ")
             director = input("Enter the movie director: ")
@@ -27,10 +30,27 @@ while True == True:
             print(f"""movie "{title}",""")
             print(f"""director "{director}",""")
             print(f"""released "{year}".""")
-            print(movies)
+
+
         def ListMovies():
             for movie in movies:
-                print(f"""Movie: {movie["title"]}, directed by {movie["director"]}, released in {movie["year"]}""")
+                print(f"""Movie: {movie["title"]}, directed by {movie["director"]}, released in {movie["year"]}.""")
+
+
+        def FindMovie():
+            Input = input("Enter the title you'd like to find (not case sensitive): ")
+            Result = {}
+            for movie in movies:
+                if movie["title"].lower() == Input.lower():
+                    Result = movie
+                else:
+                    continue
+            if bool(Result) == True:
+                print(f"""Movie: {Result["title"]}, directed by {Result["director"]}, released in {Result["year"]}.""")
+            else:
+                print(f"That title does not exist in this archive.")
+
+
         while True == True:
             MENU_PROMPT = input("Enter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: ")
             if MENU_PROMPT == "q":
@@ -41,7 +61,7 @@ while True == True:
             elif MENU_PROMPT == "l":
                 ListMovies()
             elif MENU_PROMPT == "f":
-                pass
+                FindMovie()
             else:
                 print("Please choose a valid option.")
                 continue
